@@ -130,7 +130,6 @@ function addToTeam(pokemonId) {
             const teamPokemonImg = document.createElement("img")
 
             teamPokemonImg.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`
-            teamPokemon.textContent = `ID: ${pokemonId}`
 
             teamPokemon.setAttribute('data-pokemon-id', pokemonId)
             teamPokemon.addEventListener("click", function () {

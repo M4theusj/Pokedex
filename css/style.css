@@ -124,12 +124,16 @@ button:hover {
 
 .team-pokemon-list li {
     margin: 10px;
-    background-image: url('https://static.wikia.nocookie.net/monster-master/images/4/48/Master_ball_by_peetzaahhh2010-d93nt8r.png/revision/latest?cb=20170523124618');
+    /* background-image: url('https://static.wikia.nocookie.net/monster-master/images/4/48/Master_ball_by_peetzaahhh2010-d93nt8r.png/revision/latest?cb=20170523124618'); */
+    background-image: url('https://static.wikia.nocookie.net/pokemon-fano/images/6/6f/Poke_Ball.png/revision/latest?cb=20140520015336');
     background-repeat: no-repeat;
     background-size: 100px;
-
     text-align: center;
     transition: transform 0.3s ease;
+}
+
+.team-pokemon-list li img{
+    position: center;
 }
 
 .team-pokemon-list li:hover {
