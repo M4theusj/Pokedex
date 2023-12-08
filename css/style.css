@@ -135,7 +135,7 @@ button:hover {
 
 .team-pokemon-list li {
     margin: 10px;
-    background-image: url('https://static.wikia.nocookie.net/monster-master/images/4/48/Master_ball_by_peetzaahhh2010-d93nt8r.png/revision/latest?cb=20170523124618');
+    background-image: url('../img/Masterball.png');
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
