@@ -1,0 +1,5 @@
+Mudar o icone da lupa ( ta muito feio )
+Preencher a esquerda do background com mais formas ( Muito vazio )
+Fontes 
+Talvez mudar o posicionamento dos pokemons dentro do bloco
+Funcionabilidades ( Fazer os icones/blocos funcionar )
