@@ -1,6 +1,8 @@
 # Pokedex
-Repositório criado com o objetivo de realizar o exercício de Pokedex proposto pelo professor.
+Repositório criado com o objetivo de criar uma pokedex.
 
 Criado por Matheus Jacob no dia 21-11-2023.
 
-Este repositório contém o exercício de Pokedex proposto pelo professor.
+Inicio das alterações 23-06-2024.
+
+Acesso: https://m4theusj.github.io/Pokedex/
