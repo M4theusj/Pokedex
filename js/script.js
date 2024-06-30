@@ -7,33 +7,59 @@ function getPokemonList() {
         .then(response => response.json())
         .then(data => {
             data.results.forEach(pokemon => {
-                displayPokemon(pokemon);
+                fetchPokemonDetails(pokemon);
             });
+        })
+        .catch(error => console.error(error));
+}
+
+function fetchPokemonDetails(pokemon) {
+    const pokemonId = pokemon.url.split('/')[6];
+    fetch(BASEURL + pokemonId)
+        .then(response => response.json())
+        .then(details => {
+            displayPokemon(details);
         })
         .catch(error => console.error(error));
 }
 
 function displayPokemon(pokemon) {
     const pokemonList = document.getElementById("ListaPokemons");
-
     const listItem = document.createElement("li");
 
     const pokemonImage = document.createElement("img");
-    const pokemonId = pokemon.url.split('/')[6];
+    pokemonImage.src = pokemon.sprites.front_default;
 
-    pokemonImage.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`;
-    
     const pokemonName = document.createElement("div");
-    pokemonName.textContent = `${pokemon.name} - ${pokemonId}`;
+    pokemonName.textContent = `${pokemon.id} - ${pokemon.name}`;
     pokemonName.className = "pokemon-name";
 
-    const pokemonType = document.createElement("div");
-    pokemonType.textContent = "⚡";
-    pokemonType.className = "pokemon-type";
+    const pokemonTypes = document.createElement("div");
+    pokemonTypes.className = "pokemon-types";
+    pokemon.types.forEach(type => {
+        const typeUrlParts = type.type.url.split('/');
+        const typeId = typeUrlParts[typeUrlParts.length - 2];
+
+        const typeIconContainer = document.createElement("div");
+        typeIconContainer.className = "type-icon-container";
+
+        const typeIcon = document.createElement("img");
+        typeIcon.src = `img/${typeId}.png`;
+        typeIcon.className = "pokemon-type-icon";
+        
+        const typeIconDuplicate = document.createElement("img");
+        typeIconDuplicate.src = `img/${typeId}.png`;
+        typeIconDuplicate.className = "pokemon-type-icon duplicate";
+
+        typeIconContainer.appendChild(typeIcon);
+
+        pokemonTypes.appendChild(typeIconContainer);
+    });
 
     listItem.appendChild(pokemonImage);
     listItem.appendChild(pokemonName);
-    listItem.appendChild(pokemonType);
-
+    listItem.appendChild(pokemonTypes);
     pokemonList.appendChild(listItem);
 }
+
+

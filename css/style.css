@@ -1,3 +1,15 @@
+.roboto-regular {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+  
+.roboto-bold {
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}  
+
 body {
     margin: 0;
     padding: 0;
@@ -16,6 +28,9 @@ header {
     text-align: center;
     height: 10%;
     z-index: 1000; 
+    font-family: "Roboto", sans-serif;
+    font-weight: 600;
+    font-style: normal;
 }
 
 nav {
@@ -85,29 +100,24 @@ nav {
     height: 300px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
     margin-bottom: 30px;
+    overflow: hidden;
+
 }
 
 .pokemon-list img {
     position: absolute;
-    top: 40px;
-    left: 10px;
-    max-width: 200px;
-    height: 300px;
+    bottom: 10px; 
+    left: 10px; 
+    height: auto; 
+    object-fit: contain; 
+    width: 200px;
 }
 
 .pokemon-list .pokemon-name {
-    font-size: 16px;
-    font-weight: bold;
-    color: white;
-    margin-bottom: auto;
-}
-
-.pokemon-list .pokemon-type {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    font-size: 14px;
-    color: yellow;
+    font-family: "Roboto", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 25px;
 }
 
 .fixed-icon {
@@ -143,3 +153,35 @@ nav {
     align-items: center;
     z-index: 1001; 
 }
+
+.pokemon-types {
+    display: flex;
+    flex-direction: column; 
+    position: absolute;
+    bottom: 0px;
+    right: 70px;
+    gap: 70px;
+    padding: 5px;
+    border-radius: 10px;
+    opacity: 1;
+}
+
+.type-icon-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pokemon-type-icon {
+    max-width: 60px;
+    height: auto;
+}
+
+.pokemon-type-icon.duplicate {
+    position: absolute; 
+    top: 10px; 
+    left: 10px;
+    opacity: 0.5; 
+}
+
