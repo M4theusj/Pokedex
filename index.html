@@ -10,7 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <title>Pokédex</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/script.js"></script>
 </head>
 
 <body>
@@ -28,16 +27,30 @@
             </ul>
         </nav>
     </header>
+
     <div id="content">
         <div id="pokemonListContainer">
             <ul id="ListaPokemons" class="pokemon-list"></ul>
         </div>
-    </div>    
-
-    <img src="img/BackPack.png" alt="BackPack Icon" class="fixed-icon backpack-icon">
-    <div class="lupa-container">
-        <img src="img/Lupa.png" alt="Lupa Icon" class="fixed-icon lupa-icon">
     </div>
+
+    <div id="ModalPesquisar" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <img src="img/pokeball-modal.png" alt="Pokeball Icon" class="modal-icon">
+            <input type="text" id="pokemonIdInput" class="modal-text" placeholder="Digite o ID do pokemon" autocomplete="off">
+            <button id="searchPokemonButton">Pesquisar</button>
+        </div>
+    </div>
+
+    <img src="img/BackPack.png" alt="BackPack Icon" class="icon backpack-icon">
+    <div class="lupa-container">
+        <button id="openModalButton">
+            <img src="img/Lupa.png" alt="Lupa Icon" class="icon lupa-icon">
+        </button>
+    </div>
+
+    <script src="js/script.js"></script>
 </body>
 
 </html>

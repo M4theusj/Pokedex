@@ -1,6 +1,37 @@
 const BASEURL = "https://pokeapi.co/api/v2/pokemon/";
 
-document.addEventListener("DOMContentLoaded", getPokemonList);
+document.addEventListener("DOMContentLoaded", function() {
+    getPokemonList();
+
+    var modalPesquisar = document.getElementById("ModalPesquisar");
+    var btnPesquisar = document.getElementById("openModalButton");
+    var janelaPesquisar = document.getElementsByClassName("close")[0];
+    var inputPokemonId = document.getElementById("pokemonIdInput");
+    var searchPokemonButton = document.getElementById("searchPokemonButton");
+    modalPesquisar.style.display = "none";
+
+    btnPesquisar.onclick = function() {
+        modalPesquisar.style.display = "flex";
+    }
+
+    janelaPesquisar.onclick = function() {
+        modalPesquisar.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        if (event.target == modalPesquisar) {
+            modalPesquisar.style.display = "none";
+        }
+    }
+
+    searchPokemonButton.onclick = function() {
+        const pokemonId = inputPokemonId.value.trim();
+        if (pokemonId) {
+            modalPesquisar.style.display = "none";
+            scrollToPokemon(pokemonId);
+        }
+    }
+
 
 function getPokemonList() {
     fetch(BASEURL + '?limit=1025')
@@ -26,6 +57,7 @@ function fetchPokemonDetails(pokemon) {
 function displayPokemon(pokemon) {
     const pokemonList = document.getElementById("ListaPokemons");
     const listItem = document.createElement("li");
+    listItem.id = `pokemon-${pokemon.id}`;
 
     const pokemonImage = document.createElement("img");
     pokemonImage.src = pokemon.sprites.front_default;
@@ -46,7 +78,7 @@ function displayPokemon(pokemon) {
         const typeIcon = document.createElement("img");
         typeIcon.src = `img/${typeId}.png`;
         typeIcon.className = "pokemon-type-icon";
-        
+
         const typeIconDuplicate = document.createElement("img");
         typeIconDuplicate.src = `img/${typeId}.png`;
         typeIconDuplicate.className = "pokemon-type-icon duplicate";
@@ -62,4 +94,14 @@ function displayPokemon(pokemon) {
     pokemonList.appendChild(listItem);
 }
 
-
+function scrollToPokemon(pokemonId) {
+    const targetPokemon = document.getElementById(`pokemon-${pokemonId}`);
+    if (targetPokemon) {
+        targetPokemon.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        targetPokemon.classList.add('hover');
+        setTimeout(() => {
+            targetPokemon.classList.remove('hover');
+        }, 1500);
+    }
+}
+});
